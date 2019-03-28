@@ -1,0 +1,4 @@
+---
+mount_point: /mnt/mount1
+filesystem: ext4
+dev_path_lvm: /dev/vg1/lvm1

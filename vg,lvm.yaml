@@ -1,0 +1,16 @@
+---
+- name: volium group and logical volium
+  hosts: all
+  vars_files:
+    - vars/lvm.yml
+  tasks: 
+    - name: creating volium group
+      lvg: 
+        vg: "{{vg}}"
+        pvs: "{{pv}}"
+    - name: creating logical volium
+      lvol: 
+        vg: "{{vg}}"
+        lv: "{{lvm}}"
+        size: "{{lvm_size}}"
+

@@ -1,0 +1,24 @@
+---
+- name: give filesystem and mounting
+  hosts: all
+  vars_files: 
+    - vars/mount.yml
+  tasks: 
+    - name: create dir
+      file:
+        path: "{{mount_point}}"
+        state: directory
+        mode: 0777
+    - name: mkfs
+      filesystem: 
+        fstype: "{{filesystem}}"
+        dev: "{{dev_path_lvm}}"
+    - name:  mounting 
+      mount: 
+        path: "{{mount_point}}"
+        src: "{{dev_path_lvm}}"
+        fstype: "{{filesystem}}"
+        state: mounted
+   # - name: mount
+    #  command: 
+     #   mount -a

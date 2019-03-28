@@ -1,0 +1,5 @@
+---
+vg: vg1
+pv: /dev/vdb2
+lvm: lvm1
+lvm_size: 10
